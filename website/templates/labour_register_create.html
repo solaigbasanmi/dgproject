@@ -1,0 +1,246 @@
+<!-- records/templates/records/labour_delivery_form.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center">Add Labour Delivery Record</h2>
+    <form method="POST" class="text-center">
+        {% csrf_token %}
+        <table class="table table-bordered mx-auto" style="width: 80%;">
+            <tbody>
+                <tr>
+                    <td><label for="id_state">State:</label></td>
+                    <td>{{ form.state }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_lga">LGA:</label></td>
+                    <td>{{ form.lga }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_ward">Ward:</label></td>
+                    <td>{{ form.ward }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_facility_name">Facility Name:</label></td>
+                    <td>{{ form.facility_name }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_month_year">Month/Year:</label></td>
+                    <td>{{ form.month_year }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_date">Date:</label></td>
+                    <td>{{ form.date }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_client_name">Client Name:</label></td>
+                    <td>{{ form.client_name }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_client_number">Client Number:</label></td>
+                    <td>{{ form.client_number }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_age_group">Age Group:</label></td>
+                    <td>{{ form.age_group }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_type_of_client">Type of Client:</label></td>
+                    <td>{{ form.type_of_client }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_time_taken_on_decision">Time Taken on Decision:</label></td>
+                    <td>{{ form.time_taken_on_decision }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_incoming_referral">Incoming Referral:</label></td>
+                    <td>{{ form.incoming_referral }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_parity">Parity:</label></td>
+                    <td>{{ form.parity }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_delivery_date">Delivery Date:</label></td>
+                    <td>{{ form.delivery_date }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_delivery_mode">Delivery Mode:</label></td>
+                    <td>{{ form.delivery_mode }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_labour_monitoring">Labour Monitoring:</label></td>
+                    <td>{{ form.labour_monitoring }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_uterotonic_given">Uterotonic Given:</label></td>
+                    <td>{{ form.uterotonic_given }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_oxytocin_given">Oxytocin Given:</label></td>
+                    <td>{{ form.oxytocin_given }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_misoprostol_given">Misoprostol Given:</label></td>
+                    <td>{{ form.misoprostol_given }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_heat_stable_carbetocin_given">Heat Stable Carbetocin Given:</label></td>
+                    <td>{{ form.heat_stable_carbetocin_given }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_maternal_complication">Maternal Complication:</label></td>
+                    <td>{{ form.maternal_complication }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_blood_loss_measurement_mls">Blood Loss Measurement (ml):</label></td>
+                    <td>{{ form.blood_loss_measurement_mls }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_e_motive_provided">E-MOTIVE Provided:</label></td>
+                    <td>{{ form.e_motive_provided }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_post_abortion_care_provided">Post Abortion Care Provided:</label></td>
+                    <td>{{ form.post_abortion_care_provided }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_admission_reason">Admission Reason:</label></td>
+                    <td>{{ form.admission_reason }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_eclampsia_mgso4_provided">Eclampsia MgSO4 Provided:</label></td>
+                    <td>{{ form.eclampsia_mgso4_provided }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_discharge_date">Discharge Date:</label></td>
+                    <td>{{ form.discharge_date }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_exclusive_breastfeeding_counselled">Exclusive Breastfeeding Counselled:</label></td>
+                    <td>{{ form.exclusive_breastfeeding_counselled }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_ppfp_counselled">PPFP Counselled:</label></td>
+                    <td>{{ form.ppfp_counselled }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_accepted_ppfp_method">Accepted PPFP Method:</label></td>
+                    <td>{{ form.accepted_ppfp_method }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_referral_reason">Referral Reason:</label></td>
+                    <td>{{ form.referral_reason }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_means_of_transport_in">Means of Transport In:</label></td>
+                    <td>{{ form.means_of_transport_in }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_mother_dead">Mother Dead:</label></td>
+                    <td>{{ form.mother_dead }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_maternal_death_audit_conducted">Maternal Death Audit Conducted:</label></td>
+                    <td>{{ form.maternal_death_audit_conducted }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_maternal_death_audit_not_conducted">Maternal Death Audit Not Conducted:</label></td>
+                    <td>{{ form.maternal_death_audit_not_conducted }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_induced_abortion">Induced Abortion:</label></td>
+                    <td>{{ form.induced_abortion }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_spontaneous_abortion">Spontaneous Abortion:</label></td>
+                    <td>{{ form.spontaneous_abortion }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_time_of_birth">Time of Birth:</label></td>
+                    <td>{{ form.time_of_birth }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_sex_of_baby">Sex of Baby:</label></td>
+                    <td>{{ form.sex_of_baby }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_stillbirth">Stillbirth:</label></td>
+                    <td>{{ form.stillbirth }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_live_birth_weight">Live Birth Weight:</label></td>
+                    <td>{{ form.live_birth_weight }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_still_birth">Still Birth:</label></td>
+                    <td>{{ form.still_birth }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_still_birth_status">Still Birth Status:</label></td>
+                    <td>{{ form.still_birth_status }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_pre_term">Pre-term:</label></td>
+                    <td>{{ form.pre_term }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_admitted_to_kmc">Admitted to KMC:</label></td>
+                    <td>{{ form.admitted_to_kmc }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_birth_asphyxia">Birth Asphyxia:</label></td>
+                    <td>{{ form.birth_asphyxia }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_resuscitated_with_ambu_bag">Resuscitated with Ambu Bag:</label></td>
+                    <td>{{ form.resuscitated_with_ambu_bag }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_live_births_hiv_positive">Live Births by HIV Positive Women:</label></td>
+                    <td>{{ form.live_births_hiv_positive }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_early_neonatal_death">Early Neonatal Death:</label></td>
+                    <td>{{ form.early_neonatal_death }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_time_cord_clamped">Time Cord Clamped:</label></td>
+                    <td>{{ form.time_cord_clamped }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_chx_gel_applied">CHX Gel Applied:</label></td>
+                    <td>{{ form.chx_gel_applied }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_skin_to_skin_care_time">Skin to Skin Care Time:</label></td>
+                    <td>{{ form.skin_to_skin_care_time }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_temperature_at_1_hour">Temperature at 1 Hour:</label></td>
+                    <td>{{ form.temperature_at_1_hour }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_breastfeeding_initiation_time">Breastfeeding Initiation Time:</label></td>
+                    <td>{{ form.breastfeeding_initiation_time }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_delivery_skilled_birth_attendant">Delivery Skilled Birth Attendant:</label></td>
+                    <td>{{ form.delivery_skilled_birth_attendant }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_name_of_delivery_attendant">Name of Delivery Attendant:</label></td>
+                    <td>{{ form.name_of_delivery_attendant }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<a href="{% url 'labour_register_list' %}">Back to List</a>
+{% endblock %}

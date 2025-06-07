@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Add FP Commodity{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Add FP Commodity Mix</h2>
+    <form method="POST" class="text-center">
+        {% csrf_token %}
+        <table class="table table-bordered mx-auto" style="width: 80%;">
+            <tr>
+                <th>Field</th>
+                <th>Input</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{ form.name }}</td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>{{ form.state }}</td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td>{{ form.category }}</td>
+            </tr>
+            <tr>
+                <td>Amount</td>
+                <td>{{ form.amount }}</td>
+            </tr>
+            <tr>
+                <td>Amount 1</td>
+                <td>{{ form.amount1 }}</td>
+            </tr>
+            <tr>
+                <td>Year</td>
+                <td>{{ form.year }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </td>
+            </tr>
+        </table>
+        
+        
+    </form>
+</div>
+{% endblock %}

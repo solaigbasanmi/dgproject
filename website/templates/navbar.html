@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Finance Tracker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav me-auto"> <!-- Use me-auto to align items to the left -->
+          {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Add Record
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+             <li><a class="dropdown-item" href="{% url 'anc_register_create' %}">ANC Register</a></li>
+              
+              <li><a class="dropdown-item" href="{% url 'labour_register_create' %}">Labour Register</a></li>
+              <li><a class="dropdown-item" href="{% url 'child_immunization_create' %}">Child Immunization Register</a></li>
+                <li><a class="dropdown-item" href="{% url 'add_fp_commodity' %}">Add FP Commodity</a></li>
+              <li><a class="dropdown-item" href="{% url 'add_state_implementation_partner' %}">State  Implementation Partner</a></li>
+          <li><a class="dropdown-item" href="{% url 'add_state_costed_implementation_plan' %}">State Costed ImplPlan</a></li>
+              <li><a class="dropdown-item" href="{% url 'add_state_budget' %}">State Budget Data</a></li>
+            </ul>
+          </li>
+          {% endif %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
+         
+          <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              View Record
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="{% url 'list_contraceptive_statistics' %}"> List Contraceptive Data</a></li>
+                <li><a class="dropdown-item" href="{% url 'list_state_commodity_mix' %}"> State Commodity Mix</a></li>
+                <li><a class="dropdown-item" href="{% url 'list_fp_commodity' %}"> FP Commodity</a></li>
+                <li><a class="dropdown-item" href="{% url 'list_state_implementation_partner' %}">State  Implementation Partner</a></li>
+          <li><a class="dropdown-item" href="{% url 'list_state_costed_implementation_plan' %}">State Costed ImplPlan</a></li>
+              <li><a class="dropdown-item" href="{% url 'list_state_budget' %}">State Budget Data</a></li>
+            
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto"> <!-- Use ms-auto to align items to the right -->
+          {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ user.username }} <!-- Display username -->
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li> <!-- Add logout link -->
+            </ul>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>

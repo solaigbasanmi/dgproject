@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Cost Implementation Plans List{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Cost Implementation Plans</h2>
+    <a href="{% url 'add_state_costed_implementation_plan' %}" class="btn btn-success mb-3">Add New Plan</a>
+    <table class="table table-bordered"  id="partnersTable">
+        <thead>
+            <tr>
+                <th>State</th>
+                <th>Funding Agent</th>
+                <th>Thematic Area</th>
+                <th>Data Source</th>
+                <th>Key Activities</th>
+                <th>Costed in State Plan</th>
+                <th>Year</th>
+                <th>Created By</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for plan in plans %}
+            <tr>
+                <td>{{ plan.state }}</td>
+                <td>{{ plan.funding_agent }}</td>
+                <td>{{ plan.thematic_area }}</td>
+                <td>{{ plan.data_source }}</td>
+                <td>{{ plan.key_activities }}</td>
+                <td>{{ plan.costed_in_state_plan }}</td>
+                <td>{{ plan.year }}</td>
+                <td>{{ plan.created_by }}</td>
+                <td>
+                    
+                    <a href="" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="9" class="text-center">No records found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#partnersTable').DataTable({
+            "ordering": true,  // Enable sorting
+            "paging": true,    // Enable pagination
+            "searching": true, // Enable searching
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Cost Implementation Plan{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Add Cost Implementation Plan</h2>
+    <form method="POST" class="text-center">
+        {% csrf_token %}
+        <table class="table table-bordered mx-auto" style="width: 80%;">
+            <tbody>
+                <tr>
+                    <td><label for="id_state">State:</label></td>
+                    <td>{{ form.state }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_funding_agent">Funding Agent:</label></td>
+                    <td>{{ form.funding_agent }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_thematic_area">Thematic Area:</label></td>
+                    <td>{{ form.thematic_area }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_data_source">Data Source:</label></td>
+                    <td>{{ form.data_source }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_key_activities">Key Activities:</label></td>
+                    <td>{{ form.key_activities }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_costed_in_state_plan">Costed in State Plan:</label></td>
+                    <td>{{ form.costed_in_state_plan }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_year">Year:</label></td>
+                    <td>{{ form.year }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_created_by">Created By:</label></td>
+                    <td>{{ form.created_by }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+{% endblock %}
