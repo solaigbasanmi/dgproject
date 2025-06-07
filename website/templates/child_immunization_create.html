@@ -1,197 +1,31 @@
 
+
+<!-- records/templates/records/labour_delivery_form.html -->
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div class="container mt-5">
-    <h2 class="text-center">Add Child Immunization Record</h2>
+    <h2 class="text-center">Add Immunization  Record</h2>
     <form method="POST" class="text-center">
         {% csrf_token %}
         <table class="table table-bordered mx-auto" style="width: 80%;">
             <tbody>
+                {% for field in form %}
                 <tr>
-                    <td><label for="id_settlement">Settlement:</label></td>
-                    <td>{{ form.settlement }}</td>
+                    <td>
+                        <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
+                    </td>
+                    <td>
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="text-danger">
+                                {{ field.errors|join:', ' }}
+                            </div>
+                        {% endif %}
+                    </td>
                 </tr>
-                <tr>
-                    <td><label for="id_name_of_facility">Name of Facility:</label></td>
-                    <td>{{ form.name_of_facility }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_year">Year:</label></td>
-                    <td>{{ form.year }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_facility_name">Facility Name:</label></td>
-                    <td>{{ form.facility_name }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_session_type">Session Type:</label></td>
-                    <td>{{ form.session_type }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_session_name">Session Name:</label></td>
-                    <td>{{ form.session_name }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_facility_type">Facility Type:</label></td>
-                    <td>{{ form.facility_type }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_ward">Ward:</label></td>
-                    <td>{{ form.ward }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_lga">LGA:</label></td>
-                    <td>{{ form.lga }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_state">State:</label></td>
-                    <td>{{ form.state }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_date_of_visit">Date of Visit:</label></td>
-                    <td>{{ form.date_of_visit }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_client_name">Child’s Name:</label></td>
-                    <td>{{ form.client_name }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_card_number">ANC Card Number:</label></td>
-                    <td>{{ form.card_number }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_sex">Sex:</label></td>
-                    <td>{{ form.sex }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_follow_up_address">Follow-up Address:</label></td>
-                    <td>{{ form.follow_up_address }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_phone_number">Phone Number:</label></td>
-                    <td>{{ form.phone_number }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_date_of_birth">Date of Birth:</label></td>
-                    <td>{{ form.date_of_birth }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_hep_b_screening_0_24_hours">Hep B Screening (0-24 hours):</label></td>
-                    <td>{{ form.hep_b_screening_0_24_hours }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_hep_b_screening_above_24_hours">Hep B Screening (Above 24 hours):</label></td>
-                    <td>{{ form.hep_b_screening_above_24_hours }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_opv_0_date">OPV 0 Date:</label></td>
-                    <td>{{ form.opv_0_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_bcg_date">BCG Date:</label></td>
-                    <td>{{ form.bcg_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_opv_1_date">OPV 1 Date:</label></td>
-                    <td>{{ form.opv_1_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_penta1_date">Penta 1 Date:</label></td>
-                    <td>{{ form.penta1_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_pcv1_date">PCV 1 Date:</label></td>
-                    <td>{{ form.pcv1_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_rota_1_date">Rota 1 Date:</label></td>
-                    <td>{{ form.rota_1_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_ipv_1_date">IPV 1 Date:</label></td>
-                    <td>{{ form.ipv_1_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_opv_2_date">OPV 2 Date:</label></td>
-                    <td>{{ form.opv_2_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_penta2_date">Penta 2 Date:</label></td>
-                    <td>{{ form.penta2_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_pcv2_date">PCV 2 Date:</label></td>
-                    <td>{{ form.pcv2_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_rota_2_date">Rota 2 Date:</label></td>
-                    <td>{{ form.rota_2_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_opv_3_date">OPV 3 Date:</label></td>
-                    <td>{{ form.opv_3_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_penta3_date">Penta 3 Date:</label></td>
-                    <td>{{ form.penta3_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_pcv3_date">PCV 3 Date:</label></td>
-                    <td>{{ form.pcv3_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_rota_3_date">Rota 3 Date:</label></td>
-                    <td>{{ form.rota_3_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_ipv_2_date">IPV 2 Date:</label></td>
-                    <td>{{ form.ipv_2_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_malaria_1_date">Malaria 1 Date:</label></td>
-                    <td>{{ form.malaria_1_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_malaria_2_date">Malaria 2 Date:</label></td>
-                    <td>{{ form.malaria_2_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_vitamin_a_1_date">Vitamin A 1 Date:</label></td>
-                    <td>{{ form.vitamin_a_1_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_malaria_3_date">Malaria 3 Date:</label></td>
-                    <td>{{ form.malaria_3_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_mr_1_date">MR 1 Date:</label></td>
-                    <td>{{ form.mr_1_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_yellow_fever_date">Yellow Fever Date:</label></td>
-                    <td>{{ form.yellow_fever_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_men_a_date">Men A Date:</label></td>
-                    <td>{{ form.men_a_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_mr_2_date">MR 2 Date:</label></td>
-                    <td>{{ form.mr_2_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_malaria_4_date">Malaria 4 Date:</label></td>
-                    <td>{{ form.malaria_4_date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_itn_given">ITN Given:</label></td>
-                    <td>{{ form.itn_given }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_comments">Comments:</label></td>
-                    <td>{{ form.comments }}</td>
-                </tr>
+                {% endfor %}
                 <tr>
                     <td colspan="2" class="text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -200,6 +34,7 @@
             </tbody>
         </table>
     </form>
+    <a href="{% url 'child_immunization_list' %}">Back to List</a>
 </div>
 
 {% endblock %}

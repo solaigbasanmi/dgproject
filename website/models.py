@@ -362,7 +362,7 @@ class LabourDeliveryRegister(models.Model):
     spontaneous_abortion = models.BooleanField(default=False)
 
     # Time of birth/delivery
-    time_of_birth = models.DateTimeField(blank=True, null=True)
+    time_of_birth = models.TimeField(null=True, blank=True)
 
     # Sex of Baby
     sex_of_baby = models.CharField(max_length=1, choices=[('M', 'Male'), ('F', 'Female')], blank=True, null=True)
@@ -416,7 +416,7 @@ class LabourDeliveryRegister(models.Model):
     early_neonatal_death = models.BooleanField(default=False)
 
     # a. Time cord was clamped
-    time_cord_clamped = models.DateTimeField(blank=True, null=True)
+    time_cord_clamped = models.TimeField(null=True, blank=True)
 
     # b. 4% CHX gel is applied to cord at birth
     chx_gel_applied = models.BooleanField(default=False)
@@ -450,9 +450,6 @@ class LabourDeliveryRegister(models.Model):
 
 
 
-
-
-
 class ChildImmunizationRegister(models.Model):
     settlement = models.CharField(max_length=255)
     name_of_facility = models.CharField(max_length=255)
@@ -464,42 +461,42 @@ class ChildImmunizationRegister(models.Model):
     ward = models.CharField(max_length=255)
     lga = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
-    date_of_visit = models.DateField()  # Date of child's visit
+    date_of_visit = models.DateTimeField()  # Changed to DateTimeField
     client_name = models.CharField(max_length=255)  # Name of the child
     card_number = models.CharField(max_length=50)  # ANC Card Number
     sex = models.CharField(max_length=6)  # Male/Female
     follow_up_address = models.TextField(blank=True, null=True)  # Follow-up address
     phone_number = models.CharField(max_length=20)  # Phone number
-    date_of_birth = models.DateField()  # Date of birth
+    date_of_birth = models.DateTimeField()  # Changed to DateTimeField
 
     # Vaccine dates
     hep_b_screening_0_24_hours = models.BooleanField(default=False)
     hep_b_screening_above_24_hours = models.BooleanField(default=False)
-    opv_0_date = models.DateField(blank=True, null=True)
-    bcg_date = models.DateField(blank=True, null=True)
-    opv_1_date = models.DateField(blank=True, null=True)
-    penta1_date = models.DateField(blank=True, null=True)
-    pcv1_date = models.DateField(blank=True, null=True)
-    rota_1_date = models.DateField(blank=True, null=True)
-    ipv_1_date = models.DateField(blank=True, null=True)
-    opv_2_date = models.DateField(blank=True, null=True)
-    penta2_date = models.DateField(blank=True, null=True)
-    pcv2_date = models.DateField(blank=True, null=True)
-    rota_2_date = models.DateField(blank=True, null=True)
-    opv_3_date = models.DateField(blank=True, null=True)
-    penta3_date = models.DateField(blank=True, null=True)
-    pcv3_date = models.DateField(blank=True, null=True)
-    rota_3_date = models.DateField(blank=True, null=True)
-    ipv_2_date = models.DateField(blank=True, null=True)
-    malaria_1_date = models.DateField(blank=True, null=True)
-    malaria_2_date = models.DateField(blank=True, null=True)
-    vitamin_a_1_date = models.DateField(blank=True, null=True)
-    malaria_3_date = models.DateField(blank=True, null=True)
-    mr_1_date = models.DateField(blank=True, null=True)
-    yellow_fever_date = models.DateField(blank=True, null=True)
-    men_a_date = models.DateField(blank=True, null=True)
-    mr_2_date = models.DateField(blank=True, null=True)
-    malaria_4_date = models.DateField(blank=True, null=True)
+    opv_0_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    bcg_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    opv_1_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    penta1_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    pcv1_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    rota_1_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    ipv_1_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    opv_2_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    penta2_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    pcv2_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    rota_2_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    opv_3_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    penta3_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    pcv3_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    rota_3_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    ipv_2_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    malaria_1_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    malaria_2_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    vitamin_a_1_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    malaria_3_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    mr_1_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    yellow_fever_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    men_a_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    mr_2_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
+    malaria_4_date = models.DateTimeField(blank=True, null=True)  # Changed to DateTimeField
     itn_given = models.BooleanField(default=False)  # ITN given
     comments = models.TextField(blank=True, null=True)  # Comments
 

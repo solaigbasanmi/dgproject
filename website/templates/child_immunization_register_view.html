@@ -1,0 +1,194 @@
+<!-- records/templates/records/child_immunization_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Child Immunization Register Entry Details</h2>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Child’s Name</th>
+                <td>{{ entry.client_name }}</td>
+            </tr>
+            <tr>
+                <th>Card Number</th>
+                <td>{{ entry.card_number }}</td>
+            </tr>
+            <tr>
+                <th>Settlement</th>
+                <td>{{ entry.settlement }}</td>
+            </tr>
+            <tr>
+                <th>Facility Name</th>
+                <td>{{ entry.facility_name }}</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>{{ entry.year }}</td>
+            </tr>
+            <tr>
+                <th>Session Type</th>
+                <td>{{ entry.session_type }}</td>
+            </tr>
+            <tr>
+                <th>Session Name</th>
+                <td>{{ entry.session_name }}</td>
+            </tr>
+            <tr>
+                <th>Facility Type</th>
+                <td>{{ entry.facility_type }}</td>
+            </tr>
+            <tr>
+                <th>Ward</th>
+                <td>{{ entry.ward }}</td>
+            </tr>
+            <tr>
+                <th>LGA</th>
+                <td>{{ entry.lga }}</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>{{ entry.state }}</td>
+            </tr>
+            <tr>
+                <th>Date of Visit</th>
+                <td>{{ entry.date_of_visit }}</td>
+            </tr>
+            <tr>
+                <th>Date of Birth</th>
+                <td>{{ entry.date_of_birth }}</td>
+            </tr>
+            <tr>
+                <th>Sex</th>
+                <td>{{ entry.sex }}</td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td>{{ entry.phone_number }}</td>
+            </tr>
+            <tr>
+                <th>Follow-up Address</th>
+                <td>{{ entry.follow_up_address }}</td>
+            </tr>
+            <tr>
+                <th>Hep B Screening (0-24 hours)</th>
+                <td>{{ entry.hep_b_screening_0_24_hours|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Hep B Screening (Above 24 hours)</th>
+                <td>{{ entry.hep_b_screening_above_24_hours|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>OPV 0 Date</th>
+                <td>{{ entry.opv_0_date }}</td>
+            </tr>
+            <tr>
+                <th>BCG Date</th>
+                <td>{{ entry.bcg_date }}</td>
+            </tr>
+            <tr>
+                <th>OPV 1 Date</th>
+                <td>{{ entry.opv_1_date }}</td>
+            </tr>
+            <tr>
+                <th>Penta 1 Date</th>
+                <td>{{ entry.penta1_date }}</td>
+            </tr>
+            <tr>
+                <th>PCV 1 Date</th>
+                <td>{{ entry.pcv1_date }}</td>
+            </tr>
+            <tr>
+                <th>Rota 1 Date</th>
+                <td>{{ entry.rota_1_date }}</td>
+            </tr>
+            <tr>
+                <th>IPV 1 Date</th>
+                <td>{{ entry.ipv_1_date }}</td>
+            </tr>
+            <tr>
+                <th>OPV 2 Date</th>
+                <td>{{ entry.opv_2_date }}</td>
+            </tr>
+            <tr>
+                <th>Penta 2 Date</th>
+                <td>{{ entry.penta2_date }}</td>
+            </tr>
+            <tr>
+                <th>PCV 2 Date</th>
+                <td>{{ entry.pcv2_date }}</td>
+            </tr>
+            <tr>
+                <th>Rota 2 Date</th>
+                <td>{{ entry.rota_2_date }}</td>
+            </tr>
+            <tr>
+                <th>OPV 3 Date</th>
+                <td>{{ entry.opv_3_date }}</td>
+            </tr>
+            <tr>
+                <th>Penta 3 Date</th>
+                <td>{{ entry.penta3_date }}</td>
+            </tr>
+            <tr>
+                <th>PCV 3 Date</th>
+                <td>{{ entry.pcv3_date }}</td>
+            </tr>
+            <tr>
+                <th>Rota 3 Date</th>
+                <td>{{ entry.rota_3_date }}</td>
+            </tr>
+            <tr>
+                <th>IPV 2 Date</th>
+                <td>{{ entry.ipv_2_date }}</td>
+            </tr>
+            <tr>
+                <th>Malaria 1 Date</th>
+                <td>{{ entry.malaria_1_date }}</td>
+            </tr>
+            <tr>
+                <th>Malaria 2 Date</th>
+                <td>{{ entry.malaria_2_date }}</td>
+            </tr>
+            <tr>
+                <th>Vitamin A 1 Date</th>
+                <td>{{ entry.vitamin_a_1_date }}</td>
+            </tr>
+            <tr>
+                <th>Malaria 3 Date</th>
+                <td>{{ entry.malaria_3_date }}</td>
+            </tr>
+            <tr>
+                <th>MR 1 Date</th>
+                <td>{{ entry.mr_1_date }}</td>
+            </tr>
+            <tr>
+                <th>Yellow Fever Date</th>
+                <td>{{ entry.yellow_fever_date }}</td>
+            </tr>
+            <tr>
+                <th>Men A Date</th>
+                <td>{{ entry.men_a_date }}</td>
+            </tr>
+            <tr>
+                <th>MR 2 Date</th>
+                <td>{{ entry.mr_2_date }}</td>
+            </tr>
+            <tr>
+                <th>Malaria 4 Date</th>
+                <td>{{ entry.malaria_4_date }}</td>
+            </tr>
+            <tr>
+                <th>ITN Given</th>
+                <td>{{ entry.itn_given|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Comments</th>
+                <td>{{ entry.comments }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{% url 'child_immunization_list' %}" class="btn btn-secondary">Back to List</a>
+</div>
+{% endblock %}

@@ -10,13 +10,16 @@ urlpatterns = [
     #anc register urls
     path('anc_register_create/', views.anc_register_create, name='anc_register_create'),
     path('anc_register_list/', views.anc_register_list, name='anc_register_list'),
-    
+    path('anc_register/<int:id>/', views.anc_register_view, name='anc_register_view'),
+   
     #labour register urls
     path('labour_register_create/', views.labour_register_create, name='labour_register_create'),
     path('labour_register_list/', views.labour_register_list, name='labour_register_list'),
+    path('labour_delivery/<int:id>/', views.labour_register_view, name='labour_delivery_view'),
     
     path('child_immunization_create/', views.child_immunization_create, name='child_immunization_create'),
     path('child_immunization_list/', views.child_immunization_list, name='child_immunization_list'),
+    path('child_immunization/<int:id>/', views.child_immunization_view, name='child_immunization_view'),
     
     path('add_state_budget/', views.add_state_budget, name='add_state_budget'),
     path('list_state_budget/', views.list_state_budget, name='list_state_budget'),

@@ -62,6 +62,7 @@ class DailyANCRegisterForm(forms.ModelForm):
             # Add help texts for other fields as needed
         }
         widgets = {
+             'last_menstrual_period': forms.DateInput(attrs={'type': 'date'}),
             'date': forms.DateInput(attrs={'type': 'date'}),
             'weight': forms.NumberInput(attrs={'step': '0.01'}),
             'height': forms.NumberInput(attrs={'step': '0.01'}),
@@ -140,12 +141,18 @@ class LabourDeliveryRegisterForm(forms.ModelForm):
             # Add help texts for other fields as needed
         }
         widgets = {
+            'discharge_date': forms.DateInput(attrs={'type': 'date'}),
+            
+            'time_of_birth': forms.TimeInput(attrs={'type': 'time'}),
+             'time_cord_clamped': forms.TimeInput(attrs={'type': 'time'}),
+            
             'date': forms.DateInput(attrs={'type': 'date'}),
             'delivery_date': forms.DateInput(attrs={'type': 'date'}),
             'blood_loss_measurement_mls': forms.NumberInput(attrs={'step': '0.01'}),
             'temperature_at_1_hour': forms.NumberInput(attrs={'step': '0.01'}),
             # Customize widgets for other fields if necessary
         }
+
 
 class ChildImmunizationRegisterForm(forms.ModelForm):
     class Meta:
@@ -202,6 +209,7 @@ class ChildImmunizationRegisterForm(forms.ModelForm):
             'client_name': 'Child’s Name',
             'card_number': 'ANC Card Number',
             'date_of_visit': 'Date of Visit',
+            'date_of_birth': 'Date of Birth',
             # Add custom labels for other fields as needed
         }
         help_texts = {
@@ -209,9 +217,34 @@ class ChildImmunizationRegisterForm(forms.ModelForm):
             # Add help texts for other fields as needed
         }
         widgets = {
-            'date_of_visit': forms.DateInput(attrs={'type': 'date'}),
-            'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
-            # Customize widgets for other date fields if necessary
+            'date_of_visit': forms.DateTimeInput(attrs={'type': 'date'}),
+            'date_of_birth': forms.DateTimeInput(attrs={'type': 'date'}),
+            'opv_0_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'bcg_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'opv_1_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'penta1_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'pcv1_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'rota_1_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'ipv_1_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'opv_2_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'penta2_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'pcv2_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'rota_2_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'opv_3_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'penta3_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'pcv3_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'rota_3_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'ipv_2_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'malaria_1_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'malaria_2_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'vitamin_a_1_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'malaria_3_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'mr_1_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'yellow_fever_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'men_a_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'mr_2_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            'malaria_4_date': forms.DateTimeInput(attrs={'type': 'date'}),
+            # Customize widgets for other fields if necessary
         }
 
 class StateBudgetForm(forms.ModelForm):

@@ -1,0 +1,196 @@
+
+<!-- records/templates/records/daily_anc_register_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Daily ANC Register Entry Details</h2>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Client Name</th>
+                <td>{{ entry.client_name }}</td>
+            </tr>
+            <tr>
+                <th>ANC Card Number</th>
+                <td>{{ entry.anc_card_number }}</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>{{ entry.state }}</td>
+            </tr>
+            <tr>
+                <th>LGA</th>
+                <td>{{ entry.lga }}</td>
+            </tr>
+            <tr>
+                <th>Ward</th>
+                <td>{{ entry.ward }}</td>
+            </tr>
+            <tr>
+                <th>Facility Name</th>
+                <td>{{ entry.facility_name }}</td>
+            </tr>
+            <tr>
+                <th>Month</th>
+                <td>{{ entry.month }}</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>{{ entry.year }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ entry.date }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ entry.age }}</td>
+            </tr>
+            <tr>
+                <th>Parity</th>
+                <td>{{ entry.parity }}</td>
+            </tr>
+            <tr>
+                <th>Type of Visit</th>
+                <td>{{ entry.type_of_visit }}</td>
+            </tr>
+            <tr>
+                <th>Number of Visits</th>
+                <td>{{ entry.number_of_visits }}</td>
+            </tr>
+            <tr>
+                <th>Last Menstrual Period</th>
+                <td>{{ entry.last_menstrual_period }}</td>
+            </tr>
+            <tr>
+                <th>Gestation Age (weeks)</th>
+                <td>{{ entry.gestation_age }}</td>
+            </tr>
+            <tr>
+                <th>Weight (Kg)</th>
+                <td>{{ entry.weight }}</td>
+            </tr>
+            <tr>
+                <th>Height (M)</th>
+                <td>{{ entry.height }}</td>
+            </tr>
+            <tr>
+                <th>Blood Pressure</th>
+                <td>{{ entry.blood_pressure }}</td>
+            </tr>
+            <tr>
+                <th>Group ANC</th>
+                <td>{{ entry.group_anc|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Maternal Nutrition</th>
+                <td>{{ entry.maternal_nutrition|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Multiple Micronutrient Supplement</th>
+                <td>{{ entry.multiple_micronutrient_supplement|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Maternal Mental Health</th>
+                <td>{{ entry.maternal_mental_health|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Hygiene in Pregnancy</th>
+                <td>{{ entry.hygiene_in_pregnancy|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>GBV/FGM</th>
+                <td>{{ entry.gbv_fgm|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Early Initiation of Breastfeeding</th>
+                <td>{{ entry.early_initiation_of_breastfeeding|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Exclusive Breastfeeding</th>
+                <td>{{ entry.exclusive_breastfeeding|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>HIV Testing Services</th>
+                <td>{{ entry.hiv_testing_services|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Malaria in Pregnancy</th>
+                <td>{{ entry.malaria_in_pregnancy|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>VVF</th>
+                <td>{{ entry.vvf|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Family Planning Postpartum</th>
+                <td>{{ entry.family_planning_postpartum_fp|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Birth Registration</th>
+                <td>{{ entry.birth_registration|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>HIV Self-Care Kit</th>
+                <td>{{ entry.hiv_self_care_kit|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>HIV Testing</th>
+                <td>{{ entry.hiv_testing|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>HPV Kit</th>
+                <td>{{ entry.hpv_kit|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Syphilis Testing Result</th>
+                <td>{{ entry.syphilis_testing_result }}</td>
+            </tr>
+            <tr>
+                <th>Hepatitis B Result</th>
+                <td>{{ entry.hepatitis_b_result }}</td>
+            </tr>
+            <tr>
+                <th>Hepatitis C Result</th>
+                <td>{{ entry.hepatitis_c_result }}</td>
+            </tr>
+            <tr>
+                <th>Haematology Test Result</th>
+                <td>{{ entry.haematology_test_result }}</td>
+            </tr>
+            <tr>
+                <th>Urinalysis Result</th>
+                <td>{{ entry.urinalysis_result }}</td>
+            </tr>
+            <tr>
+                <th>Haematinics Given</th>
+                <td>{{ entry.haematinics_given }}</td>
+            </tr>
+            <tr>
+                <th>Doses of IPT Given</th>
+                <td>{{ entry.doses_of_IPT_given }}</td>
+            </tr>
+            <tr>
+                <th>Tetanus Diphtheria</th>
+                <td>{{ entry.tetanus_diphtheria }}</td>
+            </tr>
+            <tr>
+                <th>ITN Given</th>
+                <td>{{ entry.itn_given|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Associated Problems</th>
+                <td>{{ entry.associated_problems }}</td>
+            </tr>
+            <tr>
+                <th>Outcome of Visit</th>
+                <td>{{ entry.outcome_of_visit }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{% url 'anc_register_list' %}" class="btn btn-secondary">Back to List</a>
+    
+</div>
+{% endblock %}

@@ -9,186 +9,21 @@
         {% csrf_token %}
         <table class="table table-bordered mx-auto" style="width: 80%;">
             <tbody>
+                {% for field in form %}
                 <tr>
-                    <td><label for="id_state">State:</label></td>
-                    <td>{{ form.state }}</td>
+                    <td>
+                        <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
+                    </td>
+                    <td>
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="text-danger">
+                                {{ field.errors|join:', ' }}
+                            </div>
+                        {% endif %}
+                    </td>
                 </tr>
-                <tr>
-                    <td><label for="id_lga">LGA:</label></td>
-                    <td>{{ form.lga }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_ward">Ward:</label></td>
-                    <td>{{ form.ward }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_facility_name">Facility Name:</label></td>
-                    <td>{{ form.facility_name }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_month">Month:</label></td>
-                    <td>{{ form.month }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_year">Year:</label></td>
-                    <td>{{ form.year }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_date">Date:</label></td>
-                    <td>{{ form.date }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_client_name">Pregnant Woman’s Name:</label></td>
-                    <td>{{ form.client_name }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_anc_card_number">ANC Card Number:</label></td>
-                    <td>{{ form.anc_card_number }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_age">Age:</label></td>
-                    <td>{{ form.age }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_parity">Parity:</label></td>
-                    <td>{{ form.parity }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_type_of_visit">Type of Visit:</label></td>
-                    <td>{{ form.type_of_visit }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_number_of_visits">Number of Visits:</label></td>
-                    <td>{{ form.number_of_visits }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_last_menstrual_period">Last Menstrual Period:</label></td>
-                    <td>{{ form.last_menstrual_period }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_gestation_age">Gestation Age:</label></td>
-                    <td>{{ form.gestation_age }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_weight">Weight (Kg):</label></td>
-                    <td>{{ form.weight }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_height">Height (M):</label></td>
-                    <td>{{ form.height }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_blood_pressure">Blood Pressure:</label></td>
-                    <td>{{ form.blood_pressure }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_group_anc">Group ANC:</label></td>
-                    <td>{{ form.group_anc }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_maternal_nutrition">Maternal Nutrition:</label></td>
-                    <td>{{ form.maternal_nutrition }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_multiple_micronutrient_supplement">Multiple Micronutrient Supplement:</label></td>
-                    <td>{{ form.multiple_micronutrient_supplement }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_maternal_mental_health">Maternal Mental Health:</label></td>
-                    <td>{{ form.maternal_mental_health }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_hygiene_in_pregnancy">Hygiene in Pregnancy:</label></td>
-                    <td>{{ form.hygiene_in_pregnancy }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_gbv_fgm">GBV/FGM:</label></td>
-                    <td>{{ form.gbv_fgm }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_early_initiation_of_breastfeeding">Early Initiation of Breastfeeding:</label></td>
-                    <td>{{ form.early_initiation_of_breastfeeding }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_exclusive_breastfeeding">Exclusive Breastfeeding:</label></td>
-                    <td>{{ form.exclusive_breastfeeding }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_hiv_testing_services">HIV Testing Services:</label></td>
-                    <td>{{ form.hiv_testing_services }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_malaria_in_pregnancy">Malaria in Pregnancy:</label></td>
-                    <td>{{ form.malaria_in_pregnancy }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_vvf">VVF:</label></td>
-                    <td>{{ form.vvf }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_family_planning_postpartum_fp">Family Planning Postpartum:</label></td>
-                    <td>{{ form.family_planning_postpartum_fp }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_birth_registration">Birth Registration:</label></td>
-                    <td>{{ form.birth_registration }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_hiv_self_care_kit">HIV Self-Care Kit:</label></td>
-                    <td>{{ form.hiv_self_care_kit }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_hiv_testing">HIV Testing:</label></td>
-                    <td>{{ form.hiv_testing }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_hpv_kit">HPV Kit:</label></td>
-                    <td>{{ form.hpv_kit }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_syphilis_testing_result">Syphilis Testing Result:</label></td>
-                    <td>{{ form.syphilis_testing_result }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_hepatitis_b_result">Hepatitis B Result:</label></td>
-                    <td>{{ form.hepatitis_b_result }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_hepatitis_c_result">Hepatitis C Result:</label></td>
-                    <td>{{ form.hepatitis_c_result }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_haematology_test_result">Haematology Test Result:</label></td>
-                    <td>{{ form.haematology_test_result }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_urinalysis_result">Urinalysis Result:</label></td>
-                    <td>{{ form.urinalysis_result }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_haematinics_given">Haematinics Given:</label></td>
-                    <td>{{ form.haematinics_given }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_doses_of_IPT_given">Doses of IPT Given:</label></td>
-                    <td>{{ form.doses_of_IPT_given }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_tetanus_diphtheria">Tetanus Diphtheria:</label></td>
-                    <td>{{ form.tetanus_diphtheria }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_itn_given">ITN Given:</label></td>
-                    <td>{{ form.itn_given }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_associated_problems">Associated Problems:</label></td>
-                    <td>{{ form.associated_problems }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_outcome_of_visit">Outcome of Visit:</label></td>
-                    <td>{{ form.outcome_of_visit }}</td>
-                </tr>
+                {% endfor %}
                 <tr>
                     <td colspan="2" class="text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -197,6 +32,7 @@
             </tbody>
         </table>
     </form>
+    <a href="{% url 'anc_register_list' %}">Back to List</a>
 </div>
-<a href="{% url 'anc_register_list' %}">Back to List</a>
+
 {% endblock %}

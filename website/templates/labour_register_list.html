@@ -1,17 +1,17 @@
-<!-- records/templates/records/anc_register_list.html -->
+<!-- records/templates/records/labour_delivery_list.html -->
 
 {% extends 'base.html' %}
 
 {% block content %}
 <div class="container mt-5">
-    <h2 class="text-center">Daily ANC Register Entries</h2>
+    <h2 class="text-center">Labour Delivery Register Entries</h2>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Client Name</th>
-                <th>ANC Card Number</th>
-                <th>Date</th>
+                <th>Client Number</th>
+                <th>Delivery Date</th>
                 <th>Facility Name</th>
                 <th>Actions</th>
             </tr>
@@ -21,11 +21,11 @@
             <tr>
                 <td>{{ entry.id }}</td>
                 <td>{{ entry.client_name }}</td>
-                <td>{{ entry.anc_card_number }}</td>
-                <td>{{ entry.date }}</td>
+                <td>{{ entry.client_number }}</td>
+                <td>{{ entry.delivery_date }}</td>
                 <td>{{ entry.facility_name }}</td>
                 <td>
-                    <a href="{% url 'anc_register_view' entry.id %}" class="btn btn-info btn-sm">View</a>
+                    <a href="{% url 'labour_delivery_view' entry.id %}" class="btn btn-info btn-sm">View</a>
                     
                 </td>
             </tr>
@@ -36,6 +36,6 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'anc_register_create' %}" class="btn btn-primary">Add New Entry</a>
+    <a href="{% url 'labour_register_create' %}" class="btn btn-primary">Add New Entry</a>
 </div>
 {% endblock %}

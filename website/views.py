@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import DailyANCRegisterForm,LabourDeliveryRegisterForm,ChildImmunizationRegisterForm, ContraceptiveStatisticsForm,StateBudgetForm,StateCostImplementationPlanForm,StateImplementingPartnerForm,StateFPCommodityForm,StateCommodityMixForm
@@ -36,47 +36,77 @@ def anc_register_create(request):
         if form.is_valid():
             form.save()
             return redirect('anc_register_list')  # Redirect to a success page
+        else:
+            print("Form is not valid:", form.errors)  # Output validation errors
     else:
         form = DailyANCRegisterForm()
     return render(request, 'anc_register_create.html', {'form': form})
 
+def anc_register_view(request, id):
+    entry = get_object_or_404(DailyANCRegister, id=id)  # Retrieve the specific entry by ID
+    return render(request, 'anc_register_view.html', {'entry': entry})
+
+
 def anc_register_list(request):
     records = DailyANCRegister.objects.all()  # Retrieve all StateBudget records
-    return render(request, 'anc_register_list.html', {'record': records})
+    return render(request, 'anc_register_list.html', {'records': records})
 
 
 #labour register create
+
+
 def labour_register_create(request):
     if request.method == 'POST':
-        form = LabourDeliveryRegister(request.POST)
+        form = LabourDeliveryRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('labour_register_list')  # Redirect to a success page
+        else:
+            print("Form is not valid:", form.errors)  # Output validation errors
     else:
         form = LabourDeliveryRegisterForm()
     return render(request, 'labour_register_create.html', {'form': form})
 
+
 #list labour register
 def labour_register_list(request):
     records =LabourDeliveryRegister.objects.all()  # Retrieve all StateBudget records
-    return render(request, 'labour_register_list.html', {'record': records})
+    return render(request, 'labour_register_list.html', {'records': records})
+
+
+
+def labour_register_view(request, id):
+    entry = get_object_or_404(LabourDeliveryRegister, id=id)  # Retrieve the specific entry by ID
+    return render(request, 'labour_register_view.html', {'entry': entry})
+
 
 
 #labour register create
+
 def child_immunization_create(request):
     if request.method == 'POST':
-        form = ChildImmunizationRegister(request.POST)
+        form = ChildImmunizationRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('child_immunization_list')  # Redirect to a success page
+        else:
+            print("Form is not valid:", form.errors)  # Output validation errors
     else:
         form = ChildImmunizationRegisterForm()
     return render(request, 'child_immunization_create.html', {'form': form})
 
-#list labour register
+
+
+#list immunization register
 def child_immunization_list(request):
-    records =LabourDeliveryRegister.objects.all()  # Retrieve all StateBudget records
-    return render(request, 'child_immunization_list.html', {'record': records})
+    records =ChildImmunizationRegister.objects.all()  # Retrieve all StateBudget records
+    return render(request, 'child_immunization_list.html', {'records': records})
+
+
+
+def child_immunization_view(request, id):
+    entry = get_object_or_404(ChildImmunizationRegister, id=id)  # Retrieve the specific entry by ID
+    return render(request, 'child_immunization_register_view.html', {'entry': entry})
 
 
 

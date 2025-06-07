@@ -1,0 +1,230 @@
+<!-- records/templates/records/labour_delivery_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Labour Delivery Register Entry Details</h2>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Client Name</th>
+                <td>{{ entry.client_name }}</td>
+            </tr>
+            <tr>
+                <th>Client Number</th>
+                <td>{{ entry.client_number }}</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>{{ entry.state }}</td>
+            </tr>
+            <tr>
+                <th>LGA</th>
+                <td>{{ entry.lga }}</td>
+            </tr>
+            <tr>
+                <th>Ward</th>
+                <td>{{ entry.ward }}</td>
+            </tr>
+            <tr>
+                <th>Facility Name</th>
+                <td>{{ entry.facility_name }}</td>
+            </tr>
+            <tr>
+                <th>Month/Year</th>
+                <td>{{ entry.month_year }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ entry.date }}</td>
+            </tr>
+            <tr>
+                <th>Age Group</th>
+                <td>{{ entry.age_group }}</td>
+            </tr>
+            <tr>
+                <th>Type of Client</th>
+                <td>{{ entry.type_of_client }}</td>
+            </tr>
+            <tr>
+                <th>Time Taken on Decision</th>
+                <td>{{ entry.time_taken_on_decision }}</td>
+            </tr>
+            <tr>
+                <th>Incoming Referral</th>
+                <td>{{ entry.incoming_referral }}</td>
+            </tr>
+            <tr>
+                <th>Parity</th>
+                <td>{{ entry.parity }}</td>
+            </tr>
+            <tr>
+                <th>Delivery Date</th>
+                <td>{{ entry.delivery_date }}</td>
+            </tr>
+            <tr>
+                <th>Delivery Mode</th>
+                <td>{{ entry.delivery_mode }}</td>
+            </tr>
+            <tr>
+                <th>Labour Monitoring</th>
+                <td>{{ entry.labour_monitoring }}</td>
+            </tr>
+            <tr>
+                <th>Uterotonic Given</th>
+                <td>{{ entry.uterotonic_given|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Oxytocin Given</th>
+                <td>{{ entry.oxytocin_given|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Maternal Complication</th>
+                <td>{{ entry.maternal_complication }}</td>
+            </tr>
+            <tr>
+                <th>Blood Loss Measurement (ml)</th>
+                <td>{{ entry.blood_loss_measurement_mls }}</td>
+            </tr>
+            <tr>
+                <th>E-MOTIVE Provided</th>
+                <td>{{ entry.e_motive_provided|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Post Abortion Care Provided</th>
+                <td>{{ entry.post_abortion_care_provided|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Admission Reason</th>
+                <td>{{ entry.admission_reason }}</td>
+            </tr>
+            <tr>
+                <th>Eclampsia MgSO4 Provided</th>
+                <td>{{ entry.eclampsia_mgso4_provided|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Discharge Date</th>
+                <td>{{ entry.discharge_date }}</td>
+            </tr>
+            <tr>
+                <th>Exclusive Breastfeeding Counselled</th>
+                <td>{{ entry.exclusive_breastfeeding_counselled|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>PPFP Counselled</th>
+                <td>{{ entry.ppfp_counselled|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Accepted PPFP Method</th>
+                <td>{{ entry.accepted_ppfp_method }}</td>
+            </tr>
+            <tr>
+                <th>Referral Reason</th>
+                <td>{{ entry.referral_reason }}</td>
+            </tr>
+            <tr>
+                <th>Means of Transport In</th>
+                <td>{{ entry.means_of_transport_in }}</td>
+            </tr>
+            <tr>
+                <th>Mother Dead</th>
+                <td>{{ entry.mother_dead|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Maternal Death Audit Conducted</th>
+                <td>{{ entry.maternal_death_audit_conducted|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Maternal Death Audit Not Conducted</th>
+                <td>{{ entry.maternal_death_audit_not_conducted|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Induced Abortion</th>
+                <td>{{ entry.induced_abortion|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Spontaneous Abortion</th>
+                <td>{{ entry.spontaneous_abortion|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Time of Birth</th>
+                <td>{{ entry.time_of_birth }}</td>
+            </tr>
+            <tr>
+                <th>Sex of Baby</th>
+                <td>{{ entry.sex_of_baby }}</td>
+            </tr>
+            <tr>
+                <th>Stillbirth</th>
+                <td>{{ entry.stillbirth|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Live Baby Weight</th>
+                <td>{{ entry.live_birth_weight }}</td>
+            </tr>
+            <tr>
+                <th>Still Birth</th>
+                <td>{{ entry.still_birth|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Still Birth Status</th>
+                <td>{{ entry.still_birth_status }}</td>
+            </tr>
+            <tr>
+                <th>Pre-term</th>
+                <td>{{ entry.pre_term }}</td>
+            </tr>
+            <tr>
+                <th>Admitted to KMC</th>
+                <td>{{ entry.admitted_to_kmc|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Birth Asphyxia</th>
+                <td>{{ entry.birth_asphyxia }}</td>
+            </tr>
+            <tr>
+                <th>Resuscitated with Ambu Bag</th>
+                <td>{{ entry.resuscitated_with_ambu_bag|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Live Births by HIV Positive Women</th>
+                <td>{{ entry.live_births_hiv_positive|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Early Neonatal Death</th>
+                <td>{{ entry.early_neonatal_death|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Time Cord Clamped</th>
+                <td>{{ entry.time_cord_clamped }}</td>
+            </tr>
+            <tr>
+                <th>CHX Gel Applied</th>
+                <td>{{ entry.chx_gel_applied|yesno:"Yes,No" }}</td>
+            </tr>
+            <tr>
+                <th>Skin to Skin Care Time</th>
+                <td>{{ entry.skin_to_skin_care_time }}</td>
+            </tr>
+            <tr>
+                <th>Temperature at 1 Hour</th>
+                <td>{{ entry.temperature_at_1_hour }}</td>
+            </tr>
+            <tr>
+                <th>Breastfeeding Initiation Time</th>
+                <td>{{ entry.breastfeeding_initiation_time }}</td>
+            </tr>
+            <tr>
+                <th>Delivery Skilled Birth Attendant</th>
+                <td>{{ entry.delivery_skilled_birth_attendant }}</td>
+            </tr>
+            <tr>
+                <th>Name of Delivery Attendant</th>
+                <td>{{ entry.name_of_delivery_attendant }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{% url 'labour_register_list' %}" class="btn btn-secondary">Back to List</a>
+</div>
+{% endblock %}
