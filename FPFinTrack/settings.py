@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-&(ra&hw4=eca(72i_%662^h(084s7p_f*6o&jfo_!l5vhoimk&
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['https://dgproject-six.vercel.app/','127.0.0.1']
+ALLOWED_HOSTS = ['https://dgproject-six.vercel.app/','127.0.0.1','52.90.113.2']
 
 
 # Application definition
