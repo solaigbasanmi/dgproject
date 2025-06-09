@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Child Immunization Tally</h2>
+    
+    {% if messages %}
+        <div class="alert alert-info">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="month_year">Month-Year (MM-YYYY)</label>
+            <input type="text" class="form-control" id="month_year" name="month_year" 
+                   value="{{ selected_month|default:'' }}" placeholder="e.g. 03-2023">
+            <small class="form-text text-muted">Format: MM-YYYY (e.g. 03-2023 for March 2023)</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate Tally</button>
+    </form>
+    
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    
+    {% if summaries %}
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Monthly Summary</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Vaccine</th>
+                            <th>Total Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for summary in summaries %}
+                        <tr>
+                            <td>{{ summary.name }}</td>
+                            <td>{{ summary.count }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if daily_counts %}
+    <div class="card">
+        <div class="card-header">
+            <h4>Daily Breakdown</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>BCG</th>
+                            <th>OPV 0</th>
+                            <th>Penta 1</th>
+                            <!-- Add other vaccine headers as needed -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for day in daily_counts %}
+                        <tr>
+                            <td>{{ day.date|date:"d M Y" }}</td>
+                            <td>{{ day.counts.bcg_date }}</td>
+                            <td>{{ day.counts.opv_0_date }}</td>
+                            <td>{{ day.counts.penta1_date }}</td>
+                            <!-- Add other vaccine counts as needed -->
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

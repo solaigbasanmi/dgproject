@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Create Child Immunization Tally</h2>
+    <div class ="row">
+        <div class="mb-3">
+            <form method="POST" action="{% url 'child_immunization_tally_create' %}">
+                {% csrf_token %}
+                
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td><label for="id_facility_name">Facility Name:</label></td>
+                            <td><input type="text" name="facility_name" id="id_facility_name" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_ward">Ward:</label></td>
+                            <td><input type="text" name="ward" id="id_ward" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_lga">LGA:</label></td>
+                            <td><input type="text" name="lga" id="id_lga" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_state">State:</label></td>
+                            <td><input type="text" name="state" id="id_state" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_facility_type">Facility Type:</label></td>
+                            <td>
+                                <select name="facility_type" id="id_facility_type" class="form-control" required>
+                                    <option value="Public">Public</option>
+                                    <option value="Private">Private</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_date_of_visit">Date of Visit:</label></td>
+                            <td><input type="date" name="date_of_visit" id="id_date_of_visit" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_session_type">Session Type:</label></td>
+                            <td>
+                                <select name="session_type" id="id_session_type" class="form-control" required>
+                                    <option value="Fixed">Fixed</option>
+                                    <option value="Outreach">Outreach</option>
+                                    <option value="Mobile">Mobile</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_site_name">Site Name (if Outreach/Mobile):</label></td>
+                            <td><input type="text" name="site_name" id="id_site_name" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_hep_b_0_24_hours">Hep B Screening (0-24 Hours):</label></td>
+                            <td><input type="date" name="hep_b_0_24_hours" id="id_hep_b_0_24_hours" class="form-control" ></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_hep_b_above_24_hours">Hep B Screening (>24 Hours - 2 Weeks):</label></td>
+                            <td><input type="date" name="hep_b_above_24_hours" id="id_hep_b_above_24_hours" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_opv_0">OPV 0 (0-2 Weeks):</label></td>
+                            <td><input type="date" name="opv_0" id="id_opv_0" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_bcg">BCG (0-11 Months):</label></td>
+                            <td><input type="date" name="bcg" id="id_bcg" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_opv_1">OPV 1 (6 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="opv_1" id="id_opv_1" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_penta1">PENTA1 (6 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="penta1" id="id_penta1" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_pcv1">PCV1 (6 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="pcv1" id="id_pcv1" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_rota1">ROTA 1 (6 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="rota1" id="id_rota1" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_ipv1">IPV 1 (6 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="ipv1" id="id_ipv1" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_opv2">OPV2 (10 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="opv2" id="id_opv2" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_penta2">PENTA2 (10 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="penta2" id="id_penta2" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_pcv2">PCV2 (10 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="pcv2" id="id_pcv2" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_rota2">ROTA 2 (10 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="rota2" id="id_rota2" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_opv3">OPV3 (14 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="opv3" id="id_opv3" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_penta3">PENTA3 (14 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="penta3" id="id_penta3" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_pcv3">PCV3 (14 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="pcv3" id="id_pcv3" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_rota3">ROTA 3 (14 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="rota3" id="id_rota3" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_ipv2">IPV2 (14 Weeks - 11 Months):</label></td>
+                            <td><input type="date" name="ipv2" id="id_ipv2" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_malaria1">MALARIA 1 (5-11 Months):</label></td>
+                            <td><input type="date" name="malaria1" id="id_malaria1" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_malaria2">MALARIA 2 (6-12 Months):</label></td>
+                            <td><input type="date" name="malaria2" id="id_malaria2" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_vitamin_a_6_11">VITAMIN A (6-11 Months - 100,000 IU):</label></td>
+                            <td><input type="date" name="vitamin_a_6_11" id="id_vitamin_a_6_11" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_vitamin_a_12_23">VITAMIN A (12-23 Months - 200,000 IU):</label></td>
+                            <td><input type="date" name="vitamin_a_12_23" id="id_vitamin_a_12_23" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_malaria3">MALARIA 3 (7-13 Months):</label></td>
+                            <td><input type="date" name="malaria3" id="id_malaria3" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_mr1">MR 1 (9-11 Months):</label></td>
+                            <td><input type="date" name="mr1" id="id_mr1" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_yellow_fever">YELLOW FEVER (9-11 Months):</label></td>
+                            <td><input type="date" name="yellow_fever" id="id_yellow_fever" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_men_a">Men A (9-11 Months):</label></td>
+                            <td><input type="date" name="men_a" id="id_men_a" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_mr2">MR 2 (12-23 Months):</label></td>
+                            <td><input type="date" name="mr2" id="id_mr2" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_malaria4">MALARIA 4 (15-23 Months):</label></td>
+                            <td><input type="date" name="malaria4" id="id_malaria4" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_comments">Comments:</label></td>
+                            <td><textarea name="comments" id="id_comments" class="form-control" rows="4"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_health_officer_name">Health Officer Full Name:</label></td>
+                            <td><input type="text" name="health_officer_name" id="id_health_officer_name" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_health_officer_signature_date">Signature Date:</label></td>
+                            <td><input type="date" name="health_officer_signature_date" id="id_health_officer_signature_date" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_health_officer_phone">Health Officer Phone Number:</label></td>
+                            <td><input type="text" name="health_officer_phone" id="id_health_officer_phone" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_head_of_unit_name">Head of Unit Full Name:</label></td>
+                            <td><input type="text" name="head_of_unit_name" id="id_head_of_unit_name" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_head_of_unit_signature_date">Signature Date:</label></td>
+                            <td><input type="date" name="head_of_unit_signature_date" id="id_head_of_unit_signature_date" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_head_of_unit_phone">Head of Unit Phone Number:</label></td>
+                            <td><input type="text" name="head_of_unit_phone" id="id_head_of_unit_phone" class="form-control" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+    </div>
+        <a href="{% url 'child_immunization_tally_list' %}" class="btn btn-secondary">Back to List</a>
+   
+
+</div>
+{% endblock %}

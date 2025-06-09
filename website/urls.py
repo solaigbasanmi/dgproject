@@ -21,23 +21,8 @@ urlpatterns = [
     path('child_immunization_list/', views.child_immunization_list, name='child_immunization_list'),
     path('child_immunization/<int:id>/', views.child_immunization_view, name='child_immunization_view'),
     
-    path('add_state_budget/', views.add_state_budget, name='add_state_budget'),
-    path('list_state_budget/', views.list_state_budget, name='list_state_budget'),
-    
-    path('add_state_costed_implementation_plan/', views.add_state_costed_implementation_plan, name='add_state_costed_implementation_plan'),
-    path('list_state_costed_implementation_plan/', views.list_state_costed_implementation_plan, name='list_state_costed_implementation_plan'),
-    
-    path('add_state_implementation_partner/', views.add_state_implementation_partner, name='add_state_implementation_partner'),
-    path('list_state_implementation_partner/', views.list_state_implementation_partner, name='list_state_implementation_partner'),
-    
-    path('add_fp_commodity/', views.add_fp_commodity, name='add_fp_commodity'),
-    path('list_fp_commodity/', views.list_fp_commodity, name='list_fp_commodity'),
-    
-    path('add_state_commodity_mix/', views.add_state_commodity_mix, name='add_state_commodity_mix'),
-    path('list_state_commodity_mix/', views.list_state_commodity_mix, name='list_state_commodity_mix'), 
-    
-     path('add_contraceptive_statistics/', views.add_contraceptive_statistics, name='add_contraceptive_statistics'),
-    path('list_contraceptive_statistics/', views.list_contraceptive_statistics, name='list_contraceptive_statistics'), 
+    path('child_immunization_tally_list/', views.child_immunization_tally_list, name='child_immunization_tally_list'),
+     path('child_immunization_tally_create/', views.child_immunization_tally_create, name='child_immunization_tally_create'),
     
     path('dashboard/', views.dashboard, name='dashboard'),
 ]

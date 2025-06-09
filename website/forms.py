@@ -1,5 +1,9 @@
 from django import forms
-from .models import DailyANCRegister,LabourDeliveryRegister, ChildImmunizationRegister, ContraceptiveStatistics,Category,StateCommodityMix, StateFPCommodity,CommodityList,StateImplementingPartner, StateBudget, FundingAgent,StateCostImplementationPlan, ThematicArea, DataSource,KeyActivities
+from .models import DailyANCRegister,LabourDeliveryRegister, ChildImmunizationRegister,State
+from django.core.validators import RegexValidator
+from django import forms
+from .models import ChildImmunizationTally
+from django.forms import DateInput
 
 class DailyANCRegisterForm(forms.ModelForm):
     class Meta:
@@ -247,116 +251,93 @@ class ChildImmunizationRegisterForm(forms.ModelForm):
             # Customize widgets for other fields if necessary
         }
 
-class StateBudgetForm(forms.ModelForm):
-    agency = forms.ModelChoiceField(queryset=FundingAgent.objects.all(), empty_label="Select Funding Agent")
 
-    class Meta:
-        model = StateBudget
-        fields = [
-            'state',
-            'agency',
-            'budget_line_item',
-            'state_fp_budget',
-            'state_fp_release',
-            'year',
-            'total_state_health_budget',
-            'percent_srh_budget',
-            'created_by',
-           
-        ]
-        
-class StateCostImplementationPlanForm(forms.ModelForm):
-    funding_agent = forms.ModelChoiceField(queryset=FundingAgent.objects.all(), empty_label="Select Funding Agent")
-    thematic_area = forms.ModelChoiceField(queryset=ThematicArea.objects.all(), empty_label="Select Thematic Area")
-    data_source = forms.ModelChoiceField(queryset=DataSource.objects.all(), empty_label="Select Data Source")
-    key_activities = forms.ModelChoiceField(queryset=KeyActivities.objects.all(), empty_label="Select Key Activity")
+from django import forms
+from .models import ChildImmunizationTally
 
+class ChildImmunizationTallyForm(forms.ModelForm):
     class Meta:
-        model = StateCostImplementationPlan
+        model = ChildImmunizationTally
         fields = [
+            'facility_name',
+            'ward',
+            'lga',
             'state',
-            'funding_agent',
-            'thematic_area',
-            'data_source',
-            'key_activities',
-            'costed_in_state_plan',
-            'year',
-            'created_by'
+            'facility_type',
+            'date_of_visit',
+            'session_type',
+            'site_name',
+            'hep_b_0_24_hours',
+            'hep_b_above_24_hours',
+            'opv_0',
+            'bcg',
+            'opv_1',
+            'penta1',
+            'pcv1',
+            'rota1',
+            'ipv1',
+            'opv2',
+            'penta2',
+            'pcv2',
+            'rota2',
+            'opv3',
+            'penta3',
+            'pcv3',
+            'rota3',
+            'ipv2',
+            'malaria1',
+            'malaria2',
+            'vitamin_a_6_11',
+            'vitamin_a_12_23',
+            'malaria3',
+            'mr1',
+            'yellow_fever',
+            'men_a',
+            'mr2',
+            'malaria4',
+            'comments',
+            'health_officer_name',
+            'health_officer_signature_date',
+            'health_officer_phone',
+            'head_of_unit_name',
+            'head_of_unit_signature_date',
+            'head_of_unit_phone',
         ]
-        
-class StateImplementingPartnerForm(forms.ModelForm):
-    thematic_area = forms.ModelChoiceField(queryset=ThematicArea.objects.all(), empty_label="Select Thematic Area")
-    funding_agent = forms.ModelChoiceField(queryset=FundingAgent.objects.all(), empty_label="Select Funding Agent")
-    #data_source = forms.ModelChoiceField(queryset=DataSource.objects.all(), empty_label="Select Data Source")
-    key_activities = forms.ModelChoiceField(queryset=KeyActivities.objects.all(), empty_label="Select Key Activity")
-    class Meta:
-        model = StateImplementingPartner
-        fields = [
-            'state',
-            'funding_agent',
-            'thematic_area',
-            'key_activities',
-            'actual_implementation_cost',
-            'year',
-            'created_by'
-        ]
-        widgets = {
-            
-            'year': forms.Select(choices=[(year, year) for year in range(2000, 2027)])  # Adjust year range as needed
-        }
-        
-        
-class StateFPCommodityForm(forms.ModelForm):
-    name = forms.ModelChoiceField(queryset=CommodityList.objects.all(), empty_label="Select Commodity Area")
-    donor_agency = forms.ModelChoiceField(queryset=FundingAgent.objects.all(), empty_label="Select Funding Agent")
     
-    class Meta:
-        model = StateFPCommodity
-        fields = [
-            'name',
-            'state',
-            'funding_required',
-            'funding_commitment',
-            'fund_disbursed',
-            'donor_agency',
-            'year'
-        ]
-        widgets = {
-            'year': forms.Select(choices=[(year, year) for year in range(2000, 2031)])  # Adjust year range as needed
-        }
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         
-class StateCommodityMixForm(forms.ModelForm):
-    name = forms.ModelChoiceField(queryset=CommodityList.objects.all(), empty_label="Select Commodity Area")
-    #donor_agency = forms.ModelChoiceField(queryset=FundingAgent.objects.all(), empty_label="Select Funding Agent")
-    category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label="Select Category Funding Agent")
-   
-    class Meta:
-        model = StateCommodityMix
-        fields = [
-            'name',
-            'state',
-            'category',
-            'amount',
-            'amount1',
-           
-            'year'
+        # Set date fields as optional
+        date_fields = [
+            'hep_b_0_24_hours',
+            'hep_b_above_24_hours',
+            'opv_0',
+            'bcg',
+            'opv_1',
+            'penta1',
+            'pcv1',
+            'rota1',
+            'ipv1',
+            'opv2',
+            'penta2',
+            'pcv2',
+            'rota2',
+            'opv3',
+            'penta3',
+            'pcv3',
+            'rota3',
+            'ipv2',
+            'malaria1',
+            'malaria2',
+            'vitamin_a_6_11',
+            'vitamin_a_12_23',
+            'malaria3',
+            'mr1',
+            'yellow_fever',
+            'men_a',
+            'mr2',
+            'malaria4',
         ]
-        widgets = {
-            'year': forms.Select(choices=[(year, year) for year in range(2000, 2031)])  # Adjust year range as needed
-        }
         
-class ContraceptiveStatisticsForm(forms.ModelForm):
-    class Meta:
-        model = ContraceptiveStatistics
-        fields = [
-            'year',
-            'state',
-            'created_by',
-            'women_receiving_contraceptive_care',
-            'unintended_pregnancies_averted',
-            'unplanned_births_averted',
-            'unsafe_abortions_averted',
-        ]
-        widgets = {
-            'year': forms.Select(choices=[(year, year) for year in range(2000, 2031)])  # Adjust year range as needed
-        }
+        for field in date_fields:
+            self.fields[field].required = False  # Make these fields optional
