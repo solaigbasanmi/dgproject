@@ -24,6 +24,6 @@ urlpatterns = [
     path('child_immunization_tally_list/', views.child_immunization_tally_list, name='child_immunization_tally_list'),
      path('child_immunization_tally_create/', views.child_immunization_tally_create, name='child_immunization_tally_create'),
     
-    path('dashboard/', views.dashboard, name='dashboard'),
+    path('', views.dashboard, name='dashboard'),
 ]
 
