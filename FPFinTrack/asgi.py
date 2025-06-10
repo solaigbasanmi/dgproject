@@ -1,5 +1,5 @@
 """
-ASGI config for FPFinTrack project.
+ASGI config for dgProject project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FPFinTrack.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dgProject.settings')
 
 application = get_asgi_application()

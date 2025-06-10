@@ -1,5 +1,5 @@
 """
-WSGI config for FPFinTrack project.
+WSGI config for dgProject project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FPFinTrack.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dgProject.settings')
 
 application = get_wsgi_application()
