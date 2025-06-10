@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'dgProject.wsgi.application'
+WSGI_APPLICATION = 'dgproject.wsgi.application'
 
 
 # Database
