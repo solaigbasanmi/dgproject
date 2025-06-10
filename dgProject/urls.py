@@ -1,5 +1,5 @@
 """
-URL configuration for dgProject project.
+URL configuration for dgproject project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path,include
 
 
-admin.site.site_header = 'dgProject project'                    # default: "Django Administration"
+admin.site.site_header = 'dgproject project'                    # default: "Django Administration"
 admin.site.index_title = 'Features area'                 # default: "Site administration"
 admin.site.site_title = 'Financial Tracker' # default: "Django site admin"
 
